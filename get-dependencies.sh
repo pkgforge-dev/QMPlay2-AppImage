@@ -17,6 +17,7 @@ pacman -Syu --noconfirm \
     libsidplayfp    \
 	lld				\
 	lxqt-qtplugin   \
+	ninja			\
     pipewire-audio  \
     pipewire-jack   \
 	qt6-5compat	    \
@@ -45,6 +46,7 @@ git clone --recursive --depth 1 "$REPO" ./QMPlay2
 echo "$VERSION" > ~/version
 
 cmake -S ./QMPlay2 -B build \
+	-G Ninja \
 	-DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib \
@@ -52,4 +54,4 @@ cmake -S ./QMPlay2 -B build \
     -DUSE_PCH=ON \
     -DUSE_GIT_VERSION=ON
 cmake --build build -j$(nproc)
-cmake --install build
+ninja install
