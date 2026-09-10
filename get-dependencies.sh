@@ -7,7 +7,6 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-	clang			\
 	cmake			\
 	kvantum 	    \
 	libass			\
@@ -15,7 +14,6 @@ pacman -Syu --noconfirm \
 	libgme		    \
 	libopenmpt		\
     libsidplayfp    \
-	lld				\
 	lxqt-qtplugin   \
 	ninja			\
     pipewire-audio  \
@@ -28,7 +26,8 @@ pacman -Syu --noconfirm \
 	qt6ct			\
 	rubberband		\
 	shaderc			\
-	taglib
+	taglib			\
+	vulkan-headers
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -54,4 +53,4 @@ cmake -S ./QMPlay2 -B build \
     -DUSE_PCH=ON \
     -DUSE_GIT_VERSION=ON
 cmake --build build -j$(nproc)
-ninja install
+cd ./build && ninja install
