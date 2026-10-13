@@ -19,7 +19,6 @@ pacman -Syu --noconfirm \
     pipewire-audio  \
     pipewire-jack   \
 	qt6-5compat	    \
-	qt6-base 	    \
 	qt6-declarative \
 	qt6-svg  		\
 	qt6-tools		\
@@ -31,7 +30,7 @@ pacman -Syu --noconfirm \
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano ffmpeg-mini
+get-debloated-pkgs --add-common --prefer-nano ffmpeg-mini qt6-base-mini
 
 echo "Building QMPlay2..."
 echo "---------------------------------------------------------------"
